@@ -1,0 +1,11 @@
+!*.gitignore
+
+#Java classes
+*.class
+
+#IntelliJ Idea
+.idea
+*.iml
+
+#Target
+target
