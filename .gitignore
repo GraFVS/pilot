@@ -9,3 +9,6 @@
 
 #Target
 target
+
+#AllureFolder
+allure-results
