@@ -13,6 +13,7 @@
         <cucumber.junit.version>2.3.1</cucumber.junit.version>
         <selenide.version>4.10.01</selenide.version>
         <allure.cucumber2.jvm.version>2.7.0</allure.cucumber2.jvm.version>
+        <selenide.version>4.10.01</selenide.version>
 
 
 
@@ -68,9 +69,21 @@
             <artifactId>allure-cucumber2-jvm</artifactId>
             <version>${allure.cucumber2.jvm.version}</version>
         </dependency>
-
-
-
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.25</version>
+        </dependency>
     </dependencies>
 
 
