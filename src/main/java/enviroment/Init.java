@@ -37,6 +37,13 @@ public class Init {
         WebDriverRunner.setWebDriver(WebDriverFactory.createDriver());
     }
 
+    public static void closeDriver() {
+        if (driverStarted()) {
+            WebDriverRunner.closeWebDriver();
+            LOG.info("Отключение драйвера");
+        }
+    }
+
     private static void movieCursorOutWorkPlace() {
         if (Boolean.valueOf(System.getProperty("sirius.selenium.headless", "false"))) return;
         try {

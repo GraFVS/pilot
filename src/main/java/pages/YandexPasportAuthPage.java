@@ -6,7 +6,7 @@ import factories.PageLoadMark;
 import fields.Text;
 import org.openqa.selenium.support.FindBy;
 
-@PageEntry(title = "Яндекс.Паспорт - авторизация")
+@PageEntry(title = "Яндекс.Паспорт - авторизация", url = "https://passport.yandex.ru")
 public class YandexPasportAuthPage extends AbstractPage {
 
     @PageLoadMark

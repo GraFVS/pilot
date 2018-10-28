@@ -20,6 +20,11 @@ public @interface PageEntry {
     String title();
 
     /**
+     * url страницы - по-умолчанию отсутствует
+     */
+    String url() default "";
+
+    /**
      * Указывается iframe, в котором находятся элементы страницы, по-умолчанию - активный фрейм
      */
     Frames frame() default Frames.TOP_WINDOW;

@@ -57,6 +57,10 @@ public class PageFactory {
         return get(name);
     }
 
+    public String getPageURL(String name) {
+        return get(name).getClass().getAnnotation(PageEntry.class).url();
+    }
+
     public String getCurrentPageName() {
         return currentPageName;
     }
@@ -93,7 +97,7 @@ public class PageFactory {
             WebDriver driver = Init.getWebDriver();
             Frames targetFrame = clazz.getAnnotation(PageEntry.class).frame();
             Init.getWebDriver().switchTo().defaultContent();
-            if (targetFrame != Frames.TOP_WINDOW){
+            if (targetFrame != Frames.TOP_WINDOW) {
                 try {
                     WebDriverWait wait = new WebDriverWait(driver, (long) WAIT_ACTIVE_FRAME);
                     wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath(targetFrame.getXpath())));
