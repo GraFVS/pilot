@@ -8,10 +8,6 @@ public class Text extends AbstractField{
         super(selenideElement, name);
     }
 
-    @Override
-    public void clear() {
-
-    }
 
     @Override
     public String getText() {
@@ -25,8 +21,6 @@ public class Text extends AbstractField{
 
     @Override
     public String toString() {
-        return "Text{" +
-                "name='" + name + '\'' +
-                '}';
+        return String.format("Text{name='%s'}", name);
     }
 }

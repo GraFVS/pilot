@@ -6,6 +6,7 @@ import factories.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pages.AbstractPage;
 
 import java.awt.*;
 
@@ -26,6 +27,10 @@ public class Init {
             pageFactory = new PageFactory();
         }
         return pageFactory;
+    }
+
+    public static AbstractPage getCurrentPage() {
+        return pageFactory.getCurrentPage();
     }
 
     public static boolean driverStarted() {

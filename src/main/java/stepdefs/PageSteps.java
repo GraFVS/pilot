@@ -3,10 +3,8 @@ package stepdefs;
 import com.codeborne.selenide.ex.UIAssertionError;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.И;
-import cucumber.api.java.sl.In;
 import enviroment.Init;
 import exception.AutotestError;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
@@ -29,17 +27,18 @@ public class PageSteps {
     }
 
     @И("^пользователь переходит на страницу \"([^\"]*)\"$")
-    public void gotoPage(String page){
+    public void gotoPage(String page) {
         WebDriver driver = Init.getWebDriver();
         LOG.debug("Выполняется попытка перехода на страницу {}", page);
         String url = Init.getPageFactory().getPageURL(page);
-        if(!url.equals("")){
+        if (!url.equals("")) {
             LOG.debug("Загружается URL {}", url);
             driver.get(url);
             LOG.debug("Загружен URL {}", url);
-        }else {
-            throw new AutotestError("На странице '"+page+ "' в аннотации @PageEntry не указан URL");
+        } else {
+            throw new AutotestError("На странице '" + page + "' в аннотации @PageEntry не указан URL");
         }
+        //TODO: После добавления шагов по работе с полями на странице - встроить сюда проверку открытия страницы (checkPageIsOpened)
     }
 
     @Дано("^открывается \"([^\"]*)\"$")
@@ -57,7 +56,4 @@ public class PageSteps {
         if (!pageIsOpened)
             throw new AutotestError(String.format("Страница %s не открылась", pageName));
     }
-
-
-
 }

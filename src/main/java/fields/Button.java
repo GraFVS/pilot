@@ -8,15 +8,9 @@ public class Button extends AbstractField{
         super(selenideElement, name);
     }
 
-    @Override
-    public void clear() {
-
-    }
 
     @Override
     public String toString() {
-        return "Button{" +
-                "name='" + name + '\'' +
-                '}';
+        return String.format("Button{name='%s'}", name);
     }
 }
