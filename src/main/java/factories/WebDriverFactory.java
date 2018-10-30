@@ -1,6 +1,7 @@
 package factories;
 
 import com.codeborne.selenide.Configuration;
+import enviroment.Stand;
 import exception.AutotestError;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,9 +16,8 @@ public class WebDriverFactory {
     private static final Logger LOG = LoggerFactory.getLogger(WebDriverFactory.class);
 
     public static WebDriver createDriver() {
-        //Selenide config   TODO: вынести в проперти
-        Configuration.timeout = 4 * 1000L;
-        Configuration.collectionsTimeout = 10 * 1000L;
+        Configuration.timeout = Long.parseLong(Stand.getCurrentStand().getConfig().getString("selenide.timeout.sec")) * 1000L;
+        Configuration.collectionsTimeout = Long.parseLong(Stand.getCurrentStand().getConfig().getString("selenide.collections.timeout.sec")) * 1000L;
         Configuration.screenshots = false;
         Configuration.savePageSource = false;
         Configuration.fastSetValue = false;

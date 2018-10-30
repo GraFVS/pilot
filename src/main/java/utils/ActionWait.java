@@ -14,6 +14,8 @@ import javax.annotation.Nullable;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
+import static enviroment.Stand.getCurrentStand;
+
 /**
  * Обёртка над FluentWait, которая содержит static builder методы + доработки
  * <p>С помощью этого класса мы задаём Function WebDriver, Boolean где boolean это результат нашей операции, т.е true == success</p>
@@ -29,9 +31,9 @@ import java.util.function.Function;
 public class ActionWait extends FluentWait<WebDriver> {
     private static final Logger LOGGER = LoggerFactory.getLogger(ActionWait.class);
 
-    private static final int SHORT_TIMEOUT = 30;        //TODO убрать параметры в проперти
-    private static final int LONG_TIMEOUT = 300;
-    private static final int DEFAULT_INTERVAL = 1000;
+    private static final int SHORT_TIMEOUT = Integer.parseInt(getCurrentStand().getConfig().getString("action.wait.timeouts.short"));
+    private static final int LONG_TIMEOUT = Integer.parseInt(getCurrentStand().getConfig().getString("action.wait.timeouts.long"));
+    private static final int DEFAULT_INTERVAL = Integer.parseInt(getCurrentStand().getConfig().getString("action.wait.polling.interval"));
 
     private ActionWait(WebDriver driver) {
         super(driver);

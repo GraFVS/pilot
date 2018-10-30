@@ -14,12 +14,20 @@
         <selenide.version>4.10.01</selenide.version>
         <allure.cucumber2.jvm.version>2.7.0</allure.cucumber2.jvm.version>
         <selenide.version>4.10.01</selenide.version>
-
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 
         <aspectj.version>1.8.10</aspectj.version>
     </properties>
     <build>
+        <resources>
+            <resource>
+                <directory>src/test/resources/accounts</directory>
+            </resource>
+            <resource>
+                <directory>src/test/resources/configs</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

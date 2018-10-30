@@ -1,9 +1,10 @@
 package stepdefs;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.After;
+import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.Тогда;
-import io.qameta.allure.Step;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,8 +16,8 @@ import static enviroment.Init.closeDriver;
 import static enviroment.Init.driverStarted;
 import static enviroment.Init.initDriver;
 import static java.time.temporal.ChronoUnit.SECONDS;
-
-
+import static utils.Evaluator.getVariable;
+import static utils.Evaluator.setVariable;
 
 
 public class UtilSteps {
@@ -34,15 +35,31 @@ public class UtilSteps {
     }
 
     @Тогда("приостановлено выполнение на (\\d+) секунд")
-    @Step
     public void stopExecution(long amountOfTimeInSeconds) {
         freeze(amountOfTimeInSeconds, SECONDS);
     }
 
 
+    @Дано("^текущий пользователь \"([^\"]*)\"$")
+    public void setCurrentUser(String user) {
+        setVariable("currentUser", user);
+    }
+
+    @Дано("^в переменной \"([^\"]*)\" сохраняется значение \"(.*)\"$")
+    public void initVariable(String variable, String param) {
+        String value = getVariable(param);
+        setVariable(variable, value);
+        LOG.info("В переменной {} сохранено значение {} ", variable, value);
+    }
+
+    @Дано("^в переменных сохраняются значения:$")
+    public void initVariables(DataTable dataTable) {
+        dataTable.asLists(String.class).forEach(row -> initVariable(row.get(0), row.get(1)));
+    }
+
+
 
     @И("^выполняется рестарт вебдрайвера$")
-    @Step
     public void restartDriver() {
         closeDriver();
         initDriver();

@@ -15,6 +15,8 @@ import pages.Frames;
 import java.util.HashMap;
 import java.util.Map;
 
+import static enviroment.Stand.getCurrentStand;
+
 
 /**
  * <p>
@@ -28,7 +30,7 @@ public class PageFactory {
     private static AbstractPage currentPage;
     private static final Map<String, Class<? extends AbstractPage>> PAGES_CACHE = new HashMap<>();
     private static final Logger LOG = LoggerFactory.getLogger(PageFactory.class);
-    private static final int WAIT_ACTIVE_FRAME = 10;
+    private static final int WAIT_ACTIVE_FRAME = Integer.parseInt(getCurrentStand().getConfig().getString("wait.action.frame"));
     private static String currentPageName;
 
 
@@ -51,7 +53,6 @@ public class PageFactory {
         }
     }
 
-    //todo Добавить проверку дублирования названий полей
     public AbstractPage getPage(String name) {
         currentPageName = name;
         return get(name);

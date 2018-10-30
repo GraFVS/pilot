@@ -11,12 +11,17 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.AbstractPage;
+import utils.AccountCredentials;
 import utils.ActionWait;
 
 import java.util.concurrent.TimeUnit;
 
+import static utils.Evaluator.getVariable;
+
 public class PageSteps {
     private static final Logger LOG = LoggerFactory.getLogger(PageSteps.class);
+    private static final FieldSteps FIELD_STEPS = new FieldSteps();
+
 
     @И("^пользователь переходит по URL: \"([^\"]*)\"$")
     public void goToLoginPage(String url) {
@@ -56,4 +61,13 @@ public class PageSteps {
         if (!pageIsOpened)
             throw new AutotestError(String.format("Страница %s не открылась", pageName));
     }
+
+    @И("^пользователь авторизуется как \"([^\"]*)\"$")
+    public void userAuthorized(String role) {
+        AccountCredentials accountCredentials = new AccountCredentials(getVariable(role));
+        FIELD_STEPS.fillUpField("Поле <Логин или номер телефона>", accountCredentials.getLogin());
+        FIELD_STEPS.fillUpField("Поле <Пароль>", accountCredentials.getPassword());
+        FIELD_STEPS.clickField("Кнопка <Войти>");
+    }
+
 }
