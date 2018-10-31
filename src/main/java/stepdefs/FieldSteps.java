@@ -117,7 +117,6 @@ public class FieldSteps {
                 getCurrentPage()
                         .getField(fieldTitle)
                         .getText()
-                        //TODO: move to generic method
                         .replaceAll("\\n|\\r\\n", " ")
                         .replaceAll("\u00a0", " ")
                         .replaceAll("\\s+", " ")

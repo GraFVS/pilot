@@ -8,8 +8,6 @@ import java.lang.annotation.Target;
 /**
  * Аннотацией помечается поле, которое должно отображаться, чтобы страница считалась загруженной.
  * Алгоритм проверки загрузки любой страницы можно переопределить в методе isOpened().
- *
- * @author out-vetchinov-ms
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)

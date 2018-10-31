@@ -16,18 +16,6 @@ import java.util.function.Function;
 
 import static enviroment.Stand.getCurrentStand;
 
-/**
- * Обёртка над FluentWait, которая содержит static builder методы + доработки
- * <p>С помощью этого класса мы задаём Function WebDriver, Boolean где boolean это результат нашей операции, т.е true == success</p>
- * Т.е используем так:<p>
- * ActionWait.withTimeout(30)
- * .safeCall(driver -> {
- * element.setValue(text);
- * return element.hasValue(text);
- * };
- * </p>Таким образом метод setValue будет выполняться до тех пор, пока результат метода hasValue не будет true, или пока не кончится таймаут.
- * <p>Таким образом мы смогли сильно увеличить стабильность автотестов для IE браузера, т.к. в IE заполнение и клики работают не стабильно.</p>
- */
 public class ActionWait extends FluentWait<WebDriver> {
     private static final Logger LOGGER = LoggerFactory.getLogger(ActionWait.class);
 

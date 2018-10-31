@@ -19,11 +19,7 @@ import static enviroment.Stand.getCurrentStand;
 
 
 /**
- * <p>
- * PageFactory class.</p>
- *
- * @author sbt-sidochenko-vv
- * @version $Id: $Id
+ * Класс служит для конструирования страниц
  */
 public class PageFactory {
 

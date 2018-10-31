@@ -21,8 +21,6 @@ import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Класс служит для получения элементов объявленных на страницах.
- *
- * @author out-vetchinov-ms
  */
 public class FieldFactory {
     private static final Logger LOG = LoggerFactory.getLogger(FieldFactory.class);
@@ -42,7 +40,6 @@ public class FieldFactory {
                 .map(FieldFactory::getAbstractFields).orElseThrow(() ->
                         new AutotestError(String.format("Поле [%s] не объявлено на странице [%s]", title, page.getAnnotation(PageEntry.class))));
     }
-
 
 
     private static List<AbstractField> getAbstractFields(Field field) {

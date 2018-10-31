@@ -40,10 +40,10 @@ public class PageSteps {
             LOG.debug("Загружается URL {}", url);
             driver.get(url);
             LOG.debug("Загружен URL {}", url);
+            checkPageIsOpened(page);
         } else {
             throw new AutotestError("На странице '" + page + "' в аннотации @PageEntry не указан URL");
         }
-        //TODO: После добавления шагов по работе с полями на странице - встроить сюда проверку открытия страницы (checkPageIsOpened)
     }
 
     @Дано("^открывается \"([^\"]*)\"$")

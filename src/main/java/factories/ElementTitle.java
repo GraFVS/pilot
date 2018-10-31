@@ -6,10 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * WebElement`s title. Optional annotation.
- *
- * @author sbt-sidochenko-vv
- * @version $Id: $Id
+ * Аннотация ElementTitle - заголовок веб-элемента.
+ * Используется для обращения к элементам на странице в cucumber-feature-файлах
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)

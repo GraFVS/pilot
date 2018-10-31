@@ -1,10 +1,6 @@
 package exception;
 
-/**
- * Error for test exceptions
- *
- * @author sbt-sidochenko-vv
- */
+
 public class AutotestError extends AssertionError {
 
     public AutotestError(String message) {

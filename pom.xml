@@ -15,8 +15,6 @@
         <allure.cucumber2.jvm.version>2.7.0</allure.cucumber2.jvm.version>
         <selenide.version>4.10.01</selenide.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-
         <aspectj.version>1.8.10</aspectj.version>
     </properties>
     <build>

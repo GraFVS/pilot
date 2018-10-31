@@ -1,4 +1,4 @@
-package pages;
+package pages.yandexPages;
 
 import factories.ElementTitle;
 import factories.PageEntry;
@@ -7,6 +7,7 @@ import fields.Button;
 import fields.Input;
 import fields.Text;
 import org.openqa.selenium.support.FindBy;
+import pages.AbstractPage;
 
 @PageEntry(title = "Яндекс.Паспорт - авторизация", url = "https://passport.yandex.ru")
 public class YandexPasportAuthPage extends AbstractPage {

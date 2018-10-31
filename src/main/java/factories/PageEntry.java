@@ -9,7 +9,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author out-vetchinov-ms
+ * Аннотация PageEntry - используется для обращения к классам страниц по имени в cucumber-feature-файлах
+ *
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
@@ -20,12 +21,12 @@ public @interface PageEntry {
     String title();
 
     /**
-     * url страницы - по-умолчанию отсутствует
+     * url страницы - по-умолчанию отсутствует. Используется для перехода по url на нужную страницу
      */
     String url() default "";
 
     /**
-     * Указывается iframe, в котором находятся элементы страницы, по-умолчанию - активный фрейм
+     * Указывается iframe, в котором находятся элементы страницы, по-умолчанию - вне фрейма
      */
     Frames frame() default Frames.TOP_WINDOW;
 
